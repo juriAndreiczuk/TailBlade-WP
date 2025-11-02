@@ -7,8 +7,11 @@
 @extends('layouts.default')
 
 @section('content')
-  <div class="main-info news-post generated-post" data-barba="container"
-    data-barba-namespace="post">
+  <div
+    class="main-info news-post generated-post"
+    data-barba="container"
+    data-barba-namespace="post"
+  >
     <h1>{{ get_the_title($post_id) }}</h1>
   </div>
 @endsection
