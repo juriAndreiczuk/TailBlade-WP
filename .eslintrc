@@ -1,5 +1,3 @@
-
-
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "prettier"],
@@ -8,9 +6,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
-  "ignorePatterns": [
-    "src/scripts/core/*.ts"
-  ],
+  "ignorePatterns": ["src/scripts/core/*.ts"],
   "overrides": [
     {
       "files": ["*.ts"],
@@ -21,10 +17,14 @@
     }
   ],
   "rules": {
-    "import/extensions": ["error", "ignorePackages", {
-      "ts": "never",
-      "js": "never"
-    }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "js": "never"
+      }
+    ],
 
     "semi": "off",
     "require-jsdoc": "off",
@@ -44,14 +44,15 @@
     "class-methods-use-this": "off",
     "func-names": "off",
     "implicit-arrow-linebreak": "off",
-    "no-restricted-syntax" : "off",
+    "no-restricted-syntax": "off",
     "no-plusplus": "off",
     "comma-dangle": "off",
     "quote-props": "off",
     "arrow-parens": "off",
-    "import/no-extraneous-dependencies" : "off",
+    "import/no-extraneous-dependencies": "off",
     "import/no-useless-path-segments": "off",
     "import/no-mutable-exports": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
     "no-param-reassign": "off",
     "consistent-return": "off",
 

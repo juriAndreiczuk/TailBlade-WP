@@ -1,12 +1,23 @@
-export const changeActive = (elts: string, n: number) => {
-  let currentElements = document.querySelectorAll<HTMLElement>(`.${elts}`)
-  for (let i = 0; i < currentElements.length; i++) {
-    if (currentElements[i]) {
-      currentElements[i].classList.remove(`${elts}--active`)
+export const changeActive = (
+  elts: NodeListOf<HTMLElement>,
+  n: number,
+  classes: { active: string[]; normal: string[] } | null
+) => {
+  for (let i = 0; i < elts.length; i++) {
+    if (elts[i]) {
+      elts[i].classList.remove(`active`)
+      if (classes) {
+        elts[i].classList.remove(...classes.active)
+        elts[i].classList.add(...classes.normal)
+      }
     }
   }
-  if (currentElements[n]) {
-    currentElements[n].classList.add(`${elts}--active`)
+  if (elts[n]) {
+    elts[n].classList.add(`active`)
+    if (classes) {
+      elts[n].classList.add(...classes.active)
+      elts[n].classList.remove(...classes.normal)
+    }
   }
 }
 

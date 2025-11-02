@@ -30,6 +30,7 @@ Vite runs on port `5173` by default. Ensure `VITE_ENVIRONMENT_TYPE` is set to `d
 - `functions.php` – boots BladeOne, registers helpers, and wires the Vite asset loader
 - `includes/` – PHP helpers grouped into `setup`, `helpers`, and `posts`
 - `views/` – Blade templates organised into `layouts`, `partials`, `components`, and `pages`
+- `views/partials/ui/` – base UI elements ready for reuse across templates
 - `src/` – front-end sources
   - `scripts/core` – state management, Barba.js router, utilities, base classes
   - `scripts/modules` – reusable component logic
