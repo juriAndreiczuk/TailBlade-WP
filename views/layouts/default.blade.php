@@ -28,14 +28,14 @@
     id="page"
     class="site"
   >
-    @include('partials.header')
+    @include('partials.layout.header')
     <div
       id="content"
       class="site-content"
     >
       @yield('content')
     </div>
-    @include('partials.footer')
+    @include('partials.layout.footer')
   </div>
 
   <script>

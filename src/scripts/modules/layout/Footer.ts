@@ -1,4 +1,4 @@
-import type { IFooter } from './../types/modules.types'
+import type { IFooter } from './../../types/modules.types'
 
 class Footer implements IFooter {
   mainWrap: HTMLElement | null

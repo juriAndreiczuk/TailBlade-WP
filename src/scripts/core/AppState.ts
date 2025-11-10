@@ -2,12 +2,12 @@ import type { IAppState, IPage } from './../types/core.types'
 import type { IHeader, IFooter } from './../types/modules.types'
 import { emitter } from './Emitter'
 // modules
-import Header from '../modules/Header'
-import Footer from '../modules/Footer'
+import Header from '../modules/layout/Header'
+import Footer from '../modules/layout/Footer'
 // pages
 import Error from '../pages/Error'
 import Homepage from '../pages/Homepage'
-import Posts from '../templates/Posts'
+import Posts from '../pages/Posts'
 
 class AppState implements IAppState {
   currentPage: string

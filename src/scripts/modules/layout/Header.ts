@@ -1,5 +1,5 @@
-import { emitter } from '../core/Emitter'
-import type { IHeader } from './../types/modules.types'
+import { emitter } from '../../core/Emitter'
+import type { IHeader } from './../../types/modules.types'
 
 class Header implements IHeader {
   mainWrap: HTMLElement | null
