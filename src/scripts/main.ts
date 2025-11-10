@@ -2,12 +2,12 @@ import './../styles/app.scss'
 import './../img/right-arrow.svg'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import App from './core/App'
+import AppRouter from './app/AppRouter'
 
 gsap.registerPlugin(ScrollTrigger)
 window.ScrollTrigger = ScrollTrigger
 window.gsap = gsap
 
-const app = new App()
+const router = new AppRouter()
 
-app.appStart()
+router.start()

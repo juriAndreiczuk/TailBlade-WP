@@ -10,7 +10,7 @@ export interface IPage extends PageHooks {
   namespace: string
 }
 
-export interface IAppState {
+export interface IAppContext {
   currentPage: string
   header: IHeader
   footer: IFooter

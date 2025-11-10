@@ -1,11 +1,11 @@
 import barba from '@barba/core'
-import appState from './AppState'
-import { emitter } from './Emitter'
-import { delay } from './utils'
+import appContext from './AppContext'
+import { emitter } from './../core/Emitter'
+import { delay } from './../core/utils'
 import Page from './../core/Page'
 
-class App {
-  async appStart() {
+class AppRouter {
+  async start() {
     barba.init({
       sync: true,
       debug: true,
@@ -23,9 +23,9 @@ class App {
           }
         }
       ],
-      views: appState.pages
+      views: appContext.pages
     })
   }
 }
 
-export default App
+export default AppRouter
