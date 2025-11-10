@@ -29,6 +29,7 @@ require_once 'includes/setup/vite.config.php';
 require_once 'includes/posts/load-posts.php';
 require_once 'includes/posts/post-type-custom.php';
 require_once 'includes/helpers/utils.php';
+require_once 'includes/helpers/get_webp.php';
 require_once 'includes/helpers/migrate_database.php';
 
 ViteConfig::init();
