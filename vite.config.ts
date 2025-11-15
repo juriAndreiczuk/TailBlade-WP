@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import type { PreRenderedAsset } from 'rollup'
+import { visualizer } from 'rollup-plugin-visualizer'
 // @ts-expect-error: vite-plugin-eslint
 import eslint from 'vite-plugin-eslint'
 
@@ -36,7 +37,13 @@ export default defineConfig({
           })
         }
       }
-    }
+    },
+    visualizer({
+      filename: 'stats.html',
+      open: false,
+      gzipSize: true,
+      brotliSize: true
+    })
   ],
   resolve: {
     alias: [

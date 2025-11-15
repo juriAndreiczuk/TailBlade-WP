@@ -15,3 +15,4 @@ yarn.lock
 /cache
 /db_backup
 .eslintcache
+stats.html
