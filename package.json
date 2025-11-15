@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@barba/core": "^2.9.7",
+    "@nabla/vite-plugin-eslint": "^2.0.4",
     "@shufo/prettier-plugin-blade": "^1.16.1",
     "@types/node": "^22.15.18",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
@@ -30,9 +31,8 @@
     "lighthouse": "^13.0.1",
     "prettier": "^3.6.2",
     "sass": "^1.69.5",
-    "typescript": "^5.8.3",
-    "vite": "^4.4.7",
-    "vite-plugin-eslint": "^1.8.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.1",
     "vite-plugin-php": "^1.0.5"
   },
   "dependencies": {

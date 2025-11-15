@@ -4,8 +4,7 @@ import { fileURLToPath } from 'node:url'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import type { PreRenderedAsset } from 'rollup'
-// @ts-expect-error: vite-plugin-eslint
-import eslint from 'vite-plugin-eslint'
+import eslint from '@nabla/vite-plugin-eslint'
 
 const TEMPLATE_PATH = 'wp-content/themes/TailBlade-WP'
 const rootDir = fileURLToPath(new URL('.', import.meta.url))
