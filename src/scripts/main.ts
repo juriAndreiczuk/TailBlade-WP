@@ -1,4 +1,4 @@
-import './../styles/app.scss'
+import './../styles/app.css'
 import './../img/right-arrow.svg'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'

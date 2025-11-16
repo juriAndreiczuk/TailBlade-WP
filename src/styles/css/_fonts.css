@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Lexend-SemiBold';
+  src: url('@/src/fonts/Lexend-SemiBold.ttf');
+  font-display: swap;
+}
+
+@supports (font: -apple-system-body) or (-webkit-touch-callout: none) {
+  .font-bold,
+  .font-semibold {
+    font-weight: 500;
+  }
+}

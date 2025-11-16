@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@import './css/_fonts.css';
+
+@theme {
+  --font-body: Lexend-SemiBold;
+  --color-main: #1e40af;
+  --container-max-width: 1200px;
+}
+
+@utility container {
+  @apply px-2 md:px-4 mx-auto xl:max-w-[var(--container-max-width)];
+}
+
+@layer utilities {
+  /* safelist */
+}

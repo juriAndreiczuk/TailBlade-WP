@@ -1,11 +1,10 @@
 import { defineConfig, type HmrContext, type PluginOption } from 'vite'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import tailwindcss from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
+import tailwindcss from '@tailwindcss/vite'
 import type { PreRenderedAsset } from 'rollup'
 import { visualizer } from 'rollup-plugin-visualizer'
-import checker from 'vite-plugin-checker'
+import eslint from '@nabla/vite-plugin-eslint'
 
 const TEMPLATE_PATH = 'wp-content/themes/TailBlade-WP'
 const rootDir = fileURLToPath(new URL('.', import.meta.url))
@@ -29,25 +28,24 @@ const visualizerPlugin: PluginOption = visualizer({
   brotliSize: true
 }) as unknown as PluginOption
 
-export const checkerPlugin: PluginOption = checker({
-  typescript: true,
-  eslint: {
-    lintCommand: 'eslint "src/**/*.{ts,js}" -f unix'
-  }
-})
-
 export default defineConfig({
   css: {
-    postcss: {
-      plugins: [tailwindcss(), autoprefixer()]
-    },
     preprocessorOptions: {
       scss: {
         silenceDeprecations: ['legacy-js-api']
       }
     }
   },
-  plugins: [checkerPlugin, phpHmrPlugin, visualizerPlugin],
+  plugins: [
+    tailwindcss(),
+    eslint({
+      shouldLint(path) {
+        return path.includes('/src/') && /\.(ts|tsx)$/.test(path)
+      }
+    }),
+    phpHmrPlugin,
+    visualizerPlugin
+  ],
   resolve: {
     alias: [
       {
