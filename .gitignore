@@ -11,6 +11,7 @@ package-lock.json
 npm-debug.log
 /dist
 yarn.lock
+pnpm-lock.yaml
 /vendor
 /cache
 /db_backup

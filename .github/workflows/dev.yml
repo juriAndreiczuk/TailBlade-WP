@@ -1,7 +1,7 @@
 #add to run -  cd wp-content/themes/vite-wp/
 #add wp-content/themes/ before "deploy" in uses
 #add wp-content/themes/vite-wp/ after ./ in  local-dir
-on: 
+on:
   push:
     branches:
       - dev
@@ -11,33 +11,33 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-    - name: ⭐ Use Node.js 18
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18.17.1'
-    - name: 🔨 Build Project
-      run: |
-        yarn install
-        yarn build
-    - name: 📂 Sync files
-      uses: ./.github/deploy
-      with:
-        local-dir: ./
-        server: ${{ secrets.ftp_dev_server }}
-        username: ${{ secrets.ftp_dev_username }}
-        password: ${{ secrets.ftp_dev_password }}
-        server-dir: /public_html/wp-content/themes/vite-wp/
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          **/src/**
-          wp-content/themes/vite-wp/.github
-          .eslintrc
-          .gitignore
-          package.json
-          package-lock.json
-          vite.config.js
-          yarn.lock
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+      - name: ⭐ Use Node.js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.17.1'
+      - name: 🔨 Build Project
+        run: |
+          pnpm install
+          pnpm build
+      - name: 📂 Sync files
+        uses: ./.github/deploy
+        with:
+          local-dir: ./
+          server: ${{ secrets.ftp_dev_server }}
+          username: ${{ secrets.ftp_dev_username }}
+          password: ${{ secrets.ftp_dev_password }}
+          server-dir: /public_html/wp-content/themes/vite-wp/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/src/**
+            wp-content/themes/vite-wp/.github
+            .eslintrc
+            .gitignore
+            package.json
+            package-lock.json
+            vite.config.js
+            pnpm-lock.yaml

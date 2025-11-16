@@ -7,11 +7,9 @@
     "dev": "cross-env NODE_ENV=development vite",
     "build": "vite build",
     "preview": "vite preview",
-    "postinstall": "rm -f yarn.lock",
-    "postupdate": "rm -f yarn.lock",
     "lint": "eslint \"src/**/*.{ts,js}\"",
     "lint:fix": "eslint \"src/**/*.{ts,js}\" --fix",
-    "format": "prettier --write \"src/**/*.ts\" \"core/views/**/*.blade.php\""
+    "format": "prettier --write \"src/**/*.ts\" \"views/**/*.blade.php\""
   },
   "devDependencies": {
     "@barba/core": "^2.10.3",
