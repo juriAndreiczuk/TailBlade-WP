@@ -1,15 +1,40 @@
-import { defineConfig, type HmrContext } from 'vite'
+import { defineConfig, type HmrContext, type PluginOption } from 'vite'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 import type { PreRenderedAsset } from 'rollup'
 import { visualizer } from 'rollup-plugin-visualizer'
-// @ts-expect-error: vite-plugin-eslint
-import eslint from 'vite-plugin-eslint'
+import checker from 'vite-plugin-checker'
 
 const TEMPLATE_PATH = 'wp-content/themes/TailBlade-WP'
 const rootDir = fileURLToPath(new URL('.', import.meta.url))
+
+const phpHmrPlugin: PluginOption = {
+  name: 'php-hmr',
+  handleHotUpdate({ file, server }: HmrContext) {
+    if (file.endsWith('.php')) {
+      server.ws.send({
+        type: 'full-reload',
+        path: '*'
+      })
+    }
+  }
+}
+
+const visualizerPlugin: PluginOption = visualizer({
+  filename: 'stats.html',
+  open: false,
+  gzipSize: true,
+  brotliSize: true
+}) as unknown as PluginOption
+
+export const checkerPlugin: PluginOption = checker({
+  typescript: true,
+  eslint: {
+    lintCommand: 'eslint "src/**/*.{ts,js}" -f unix'
+  }
+})
 
 export default defineConfig({
   css: {
@@ -22,29 +47,7 @@ export default defineConfig({
       }
     }
   },
-  plugins: [
-    eslint({
-      cache: false,
-      include: ['src/**/*.ts', 'src/**/*.tsx'],
-      exclude: ['node_modules']
-    }),
-    {
-      handleHotUpdate({ file, server }: HmrContext) {
-        if (file.endsWith('.php')) {
-          server.ws.send({
-            type: 'full-reload',
-            path: '*'
-          })
-        }
-      }
-    },
-    visualizer({
-      filename: 'stats.html',
-      open: false,
-      gzipSize: true,
-      brotliSize: true
-    })
-  ],
+  plugins: [checkerPlugin, phpHmrPlugin, visualizerPlugin],
   resolve: {
     alias: [
       {
