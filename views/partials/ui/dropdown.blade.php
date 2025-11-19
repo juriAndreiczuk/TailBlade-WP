@@ -22,6 +22,8 @@
     @foreach ($options as $option)
       <button
         type="button"
+        title="{{ $option }}"
+        aria-label="{{ $option }}"
         class="block w-full text-left"
         data-dropdown="option"
       >

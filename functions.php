@@ -26,6 +26,7 @@ require_once 'includes/setup/load-blade-templates.php';
 require_once 'includes/setup/theme-setup.php';
 require_once 'includes/setup/script-modifier.php';
 require_once 'includes/setup/vite.config.php';
+require_once 'includes/setup/remove-assets.php';
 require_once 'includes/posts/load-posts.php';
 require_once 'includes/posts/post-type-custom.php';
 require_once 'includes/helpers/utils.php';

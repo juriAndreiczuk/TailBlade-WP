@@ -5,6 +5,7 @@
   <button
     data-acc="trigger"
     class="w-full text-left p-4 flex justify-between items-start"
+    aria-label="{{ $title }}"
     title="{{ $title }}"
   >
     <span class="font-body text-lg">{{ $title }}</span>

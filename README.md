@@ -71,3 +71,16 @@ Each page extends the shared `Page` base class and participates in lifecycle hoo
 - Tailwind config lives directly in `app.css` via `@theme` / `@utility`.
 - Blade template cache is stored in `/cache` — must be writable.
 - Composer is configured to remove `composer.lock` during install/update to keep the theme distribution-friendly.
+
+### To improve cache optimization and enable long-term browser caching, paste this into your .htaccess (in root folder):
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
