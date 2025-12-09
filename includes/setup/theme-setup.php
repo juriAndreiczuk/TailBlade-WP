@@ -7,7 +7,9 @@ class ThemeSetup {
 		add_theme_support('title-tag');
 		add_theme_support('post-thumbnails');
 		register_nav_menus(['menu-1' => esc_html__('Primary', 'fv')]);
-		add_image_size( 'full-hd', 1920);
+		add_image_size('full-hd', 1920, 980);
+		add_image_size('mobile', 576, 700, true);
+
 		show_admin_bar(false);
 		if (function_exists('acf_add_options_page')) {
 			acf_add_options_page();
