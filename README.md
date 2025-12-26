@@ -22,11 +22,11 @@ Composer manages PHP dependencies, Tailwind CSS v4 handles styling, the scripts 
 2. Install PHP dependencies: `composer install`
 3. Start the development server: `pnpm dev`
 
-Vite runs on port `5173` by default. Ensure `VITE_ENVIRONMENT_TYPE` is set to `dev` in your WordPress configuration to enable hot reloading and Barba routing during development.
+Vite runs on port `5173` by default. For development, set `VITE_ENVIRONMENT_TYPE=dev` in .env.development (theme root) to use the Vite dev server (HMR) and enable Barba debug mode.
 
 ## Build & Deployment
 
-- `pnpm build` – creates the production bundle in `dist/` and generates `manifest.json`
+- `pnpm build` – creates the production bundle in `dist/` and generates `.vite/manifest.json`
 - `pnpm preview` – serves the production build locally for final checks  
   The production manifest is read by `includes/setup/vite.config.php` to enqueue hashed assets.
 
