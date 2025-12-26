@@ -5,6 +5,7 @@
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "preserve",
+    "types": ["vite/client"],
     "esModuleInterop": true,
     "allowJs": true,
     "checkJs": false,

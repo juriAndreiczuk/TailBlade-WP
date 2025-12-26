@@ -16,3 +16,5 @@ export interface IAppContext {
   footer: IFooter
   pages: unknown[]
 }
+
+export type EnvMode = 'dev' | 'production'

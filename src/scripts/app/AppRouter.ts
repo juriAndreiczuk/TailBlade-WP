@@ -3,12 +3,15 @@ import appContext from './AppContext'
 import { emitter } from './../core/Emitter'
 import { delay } from './../core/utils'
 import Page from './../core/Page'
+import { EnvMode } from './../types/core.types'
+
+const envType: EnvMode = import.meta.env.VITE_ENVIRONMENT_TYPE ?? 'production'
 
 class AppRouter {
   async start() {
     barba.init({
       sync: true,
-      debug: true,
+      debug: envType === 'dev',
       transitions: [
         {
           async leave(data) {
